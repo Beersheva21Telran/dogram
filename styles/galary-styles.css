@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'lakeshore';
+    src: url(./fonts/LAKESHOR-webfont.svg);
+    src: url(./fonts/LAKESHOR-webfont.woff);
+}
+@font-face {
+    font-family: 'airstream';
+    src: url(./fonts/Airstream-webfont.svg);
+    src: url(./fonts/Airstream-webfont.woff);
+}
+body, html {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 1.5vw;   
+}
+.main-header {
+
+}
+.logo {
+    font-family: 'lakeshore';
+    font-size: 5em;
+    text-transform: uppercase;
+    background-color: aliceblue;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+.main-class {
+    /* flex-grow нужно, чтобы этот блок рос при увеличении размера экрана
+    У остальных блоков этот параметр будет равным 0, чтобы их размеры были фиксированными */
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.details-frame {
+    /* нужно для того, чтобы относительно элемента с этим классом,
+    можно было выполнять абсолютное позициаонирование дочерних элементов */
+    position: relative;
+}
+.details-image {
+    width: 80vw;
+    height: 65vw;
+    
+}
+.details-title {
+    position: absolute;
+    left: 5vw;
+    bottom: 1vw;
+    font-family: 'airstream';
+    font-style: italic;
+    font-size: 2em;
+    background-color: chocolate;
+    color: cornsilk;
+}
+.thumbnails-list {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    flex-wrap: wrap;
+    overflow: scroll;
+    /* максимальная высота области скроллинга */
+    max-height: 40vh;
+    justify-content: space-around;
+    padding: 0;
+
+}
+.thumbnails-item {
+    border: 2px red solid;
+    border-radius: 25%;
+    overflow: hidden;
+    margin-right: 1vw;
+}
+.thumbnails-image {
+    width: 30vw;
+    height: 20vw;
+}
+.thumbnails-title {
+    font-size: 1em;
+    display: block;
+    text-align: center;
+    background-color: chocolate;
+    color: cornsilk;
+}
