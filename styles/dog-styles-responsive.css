@@ -1,0 +1,84 @@
+
+@media screen and (min-width: 568px) {
+
+    :root {
+        --thumbnails-image-width: 15vw;
+        --thumbnails-image-height: 10vw;
+        --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.25);
+    }
+    
+    .main-class {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-evenly;
+        height: 80vh;
+    }
+    .details-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 80vw;
+        height: 70vh;
+    }
+    .details-image {
+        width: 80vw;
+        height: 50vw;
+        max-height: 80vh;;
+    }
+    .details-frame {
+        position: relative;
+    }
+    .details-title {
+        max-height: 40vw;
+        position: absolute;
+        font-family: 'airstream';
+        font-style: italic;
+        font-size: 3em;
+        padding: 0.25vw 3vw;
+        left: -1vw;
+        bottom: 1vw;
+        background-color: coral;
+        color: whitesmoke;
+    }
+
+
+    .thumbnails-container {
+        width: 15vw;
+        height: 80vh;
+        padding-top: 2.5vh;
+    }
+    .thumbnails-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+        max-height: 85vh;
+        overflow: auto;
+        justify-content: space-evenly;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        height: 70vh;
+    }
+    .thumbnails-item {
+        border: 2px aliceblue solid;
+        border-radius: 25%;
+        overflow: hidden;
+        margin-bottom: 2em;
+        max-width: var(--thumbnails-image-width);
+        max-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
+    }
+    .thumbnails-image {
+        width: var(--thumbnails-image-width);
+        height: var(--thumbnails-image-height);
+        margin-right: 2vw;
+        width: var(--thumbnails-image-width);
+    }
+    .thumbnails-title {
+        font-size: 4em;
+        display: block;
+        text-align: center;
+        background-color: aliceblue;
+        color:lightslategray;
+    }
+}

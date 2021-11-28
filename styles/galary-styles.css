@@ -8,14 +8,20 @@
     src: url(./fonts/Airstream-webfont.svg);
     src: url(./fonts/Airstream-webfont.woff);
 }
+:root {
+    --thumbnails-image-width: 30vw;
+    --thumbnails-image-height: 20vw;
+    --thumbnails-title-height: calc(var(--thumbnails-image-height) * 0.25);
+}
 body, html {
     height: 100%;
 }
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    font-size: 1.5vw;   
+    /* justify-content: space-evenly; */
+    font-size: 1.5vw;  
+    background-color: beige; 
 }
 .main-header {
 
@@ -51,17 +57,16 @@ body {
 }
 .details-image {
     width: 80vw;
-    height: 65vw;
-    
+    height: 65vw;  
 }
 .details-title {
     position: absolute;
-    left: 5vw;
+    left: -2vw;
     bottom: 1vw;
     font-family: 'airstream';
     font-style: italic;
-    font-size: 2em;
-    background-color: chocolate;
+    font-size: 5em;
+    background-color: #d2691e9f;
     color: cornsilk;
 }
 .thumbnails-list {
@@ -71,25 +76,101 @@ body {
     flex-wrap: wrap;
     overflow: scroll;
     /* максимальная высота области скроллинга */
-    max-height: 40vh;
+    max-height: 50vh;
     justify-content: space-around;
     padding: 0;
 
 }
 .thumbnails-item {
-    border: 2px red solid;
-    border-radius: 25%;
+    border: 1px rgb(0, 0, 0) solid;
+    border-radius: 10%;
     overflow: hidden;
-    margin-right: 1vw;
+    margin: 1vw;
+    max-width: var(--thumbnails-image-width);
+    max-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
 }
 .thumbnails-image {
-    width: 30vw;
-    height: 20vw;
+    width: var(--thumbnails-image-width);
+    height: var(--thumbnails-image-height);
 }
 .thumbnails-title {
-    font-size: 1em;
+    font-size: 2.5em;
     display: block;
     text-align: center;
-    background-color: chocolate;
+    background-color: blue;
     color: cornsilk;
+    height: var(--thumbnails-title-height);
+}
+.main-footer {
+    text-align: center;
+    font-size: 3em;
+}
+@media screen and (min-width: 568px) {
+    :root {
+        --main-class-height: 80vh;
+        --main-header: 25vh;
+        --details-container-height: 80vh;
+        --footer-height: 15vh;
+        --details-container-width: 100vh;
+        --thumbnails-image-width: 20vw;
+        --thumbnails-image-height: 15vw;
+    }
+    .main-header {
+        /* height: var(--main-header); */
+    }
+    .main-class {
+        flex-grow: 1; 
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-evenly;
+        height: var(--main-class-height);
+    } 
+    .main-footer {
+        height: var(--footer-height);
+    }
+    .thumbnails-container {
+        width: 20vw;
+        height: var(--details-container-height);
+    }
+    .thumbnails-list {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        /* flex-wrap: wrap; */
+        overflow: scroll;   
+        max-height: var(--details-container-height);
+        justify-content: space-around;
+        padding: 0;
+    }
+    /* варианты cделать отступ сверху у всех иконок кроме 1 иконки */
+    /* вар1: говорим, что у всех иконок перед которыми есть другая иконка отступ сверху 2em*/
+    .thumbnails-item + .thumbnails-item {
+        margin-top: 2em;
+    }
+    
+    /* вар1: говорим, что у всех иконок отступ сверху 2em, а у иконики с id отступ равен 0*/
+    /* 
+    .thumbnails-item {
+        margin-top: 2em;
+    }
+    #dog1 {
+        margin-top: 0;
+    } */
+   
+    .details-container {
+        object-fit: fill;
+        max-width: var(--details-container-width);
+    }
+    .details-image {
+       max-width: var(--details-container-width);
+       max-height: var(--main-class-height);
+    }
+    .details-title {
+        font-size: 3em;
+        left: 2vw;
+    }
+    .main-footer {
+        text-align: center;
+        font-size: 1em;
+    }
 }
