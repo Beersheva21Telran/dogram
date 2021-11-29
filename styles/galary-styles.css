@@ -151,7 +151,7 @@ a {
         --main-header: 25vh;
         --details-container-height: 80vh;
         --footer-height: 15vh;
-        --details-container-width: 100vh;
+        --details-container-width: 70vw;
         --thumbnails-image-width: 20vw;
         --thumbnails-image-height: 15vw;
     }
@@ -219,5 +219,5 @@ a {
     }
     .hidden .thumbnails-item + .thumbnails-item {
         margin-top: 0em;
-    }
+    } 
 }
