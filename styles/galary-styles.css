@@ -23,6 +23,9 @@ body {
     font-size: 1.5vw;  
     background-color: beige; 
 }
+a {
+    text-decoration: none;
+}
 .main-header {
 
 }
@@ -43,6 +46,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+/* этот стиль будет работать только в том случае, 
+если в одном из родительских 'элементов' есть класс hidden */
+.hidden .details-container {
+    display: none;
 }
 .details-container {
     display: flex;
@@ -69,6 +77,15 @@ body {
     background-color: #d2691e9f;
     color: cornsilk;
 }
+.hide-button {
+    position: absolute;
+    right: 2vw;
+    top: 2vw;
+    /* font-family: 'lakeshore'; */
+    font-size: 2em;
+    color: grey;
+    /* border-style: none; */
+}
 .thumbnails-list {
     display: flex;
     flex-direction: row;
@@ -88,6 +105,10 @@ body {
     margin: 1vw;
     max-width: var(--thumbnails-image-width);
     max-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
+}
+.selected.thumbnails-item {
+    border-radius: 0;
+    border: 4px solid green;
 }
 .thumbnails-image {
     width: var(--thumbnails-image-width);
