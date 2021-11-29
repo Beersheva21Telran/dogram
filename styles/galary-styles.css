@@ -56,11 +56,7 @@ a {
     justify-content: space-around;
     align-items: center;
 }
-/* этот стиль будет работать только в том случае, 
-если в одном из родительских 'элементов' есть класс hidden */
-.hidden .details-container {
-    display: none;
-}
+
 .details-frame {
     /* нужно для того, чтобы относительно элемента с этим классом,
     можно было выполнять абсолютное позициаонирование дочерних элементов */
@@ -98,21 +94,17 @@ a {
     justify-content: space-around;
     padding: 0;
 }
-.hidden .thumbnails-list {
-    max-height: 80vh;
-}
+
 .thumbnails-item {
     border: 1px rgb(0, 0, 0) solid;
     border-radius: 10%;
     overflow: hidden;
     margin: 1vw;
+    margin-top: 0;
     max-width: var(--thumbnails-image-width);
     max-height: calc(var(--thumbnails-image-height) + var(--thumbnails-title-height));
 }
-.hidden .thumbnails-item {
-    max-width: calc(var(--thumbnails-image-width) * 1.2);
-    max-height: calc(var(--thumbnails-image-height) * 1.2 + var(--thumbnails-title-height));
-}
+
 .selected.thumbnails-item {
     border-radius: 0;
     border: 4px solid green;
@@ -121,10 +113,7 @@ a {
     width: var(--thumbnails-image-width);
     height: var(--thumbnails-image-height);
 }
-.hidden .thumbnails-image {
-    width: calc(var(--thumbnails-image-width) * 1.2);
-    height: calc(var(--thumbnails-image-height) * 1.2);
-}
+
 .thumbnails-title {
     font-size: 2.5em;
     display: block;
@@ -137,6 +126,25 @@ a {
     text-align: center;
     font-size: 3em;
 }
+
+/* стили при скрытом  детальном изображении */
+/* этот стиль будет работать только в том случае, 
+если в одном из родительских 'элементов' есть класс hidden */
+.hidden .details-container {
+    display: none;
+}
+.hidden .thumbnails-list {
+    max-height: 80vh;
+}
+.hidden .thumbnails-item {
+    max-width: calc(var(--thumbnails-image-width) * 1.2);
+    max-height: calc(var(--thumbnails-image-height) * 1.2 + var(--thumbnails-title-height));
+}
+.hidden .thumbnails-image {
+    width: calc(var(--thumbnails-image-width) * 1.2);
+    height: calc(var(--thumbnails-image-height) * 1.2);
+}
+
 @media screen and (min-width: 568px) {
     :root {
         --main-class-height: 80vh;
@@ -146,9 +154,6 @@ a {
         --details-container-width: 100vh;
         --thumbnails-image-width: 20vw;
         --thumbnails-image-height: 15vw;
-    }
-    .main-header {
-        /* height: var(--main-header); */
     }
     .main-class {
         flex-grow: 1; 
@@ -164,15 +169,10 @@ a {
         width: 20vw;
         height: var(--details-container-height);
     }
-    .hidden .thumbnails-container {
-        width: 100vw;
-        height: var(--details-container-height);
-    }
     .thumbnails-list {
         display: flex;
         flex-direction: row;
         list-style-type: none;
-        /* flex-wrap: wrap; */
         overflow: scroll;   
         max-height: var(--details-container-height);
         justify-content: space-around;
@@ -181,11 +181,7 @@ a {
     /* варианты cделать отступ сверху у всех иконок кроме 1 иконки */
     /* вар1: говорим, что у всех иконок перед которыми есть другая иконка отступ сверху 2em*/
     .thumbnails-item + .thumbnails-item {
-        margin-top: 2em;
-    }
-
-    .hidden .thumbnails-item + .thumbnails-item {
-        margin-top: 0em;
+        margin-top: 1em;
     }
     
     /* вар1: говорим, что у всех иконок отступ сверху 2em, а у иконики с id отступ равен 0*/
@@ -215,5 +211,13 @@ a {
     .main-footer {
         text-align: center;
         font-size: 1em;
+    }
+    /* стили при скрытом  детальном изображении для широкоэкранного режима*/
+    .hidden .thumbnails-container {
+        width: 100vw;
+        /* height: var(--details-container-height); */
+    }
+    .hidden .thumbnails-item + .thumbnails-item {
+        margin-top: 0em;
     }
 }
