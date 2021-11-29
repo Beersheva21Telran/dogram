@@ -47,9 +47,7 @@ a {
     flex-direction: column;
     justify-content: space-around;
 }
-.main-class.hidden {
-    justify-content:start;
-}
+
 .details-container {
     display: flex;
     flex-direction: column;
@@ -130,6 +128,9 @@ a {
 /* стили при скрытом  детальном изображении */
 /* этот стиль будет работать только в том случае, 
 если в одном из родительских 'элементов' есть класс hidden */
+.main-class.hidden {
+    justify-content:start;
+}
 .hidden .details-container {
     display: none;
 }
@@ -215,7 +216,6 @@ a {
     /* стили при скрытом  детальном изображении для широкоэкранного режима*/
     .hidden .thumbnails-container {
         width: 100vw;
-        /* height: var(--details-container-height); */
     }
     .hidden .thumbnails-item + .thumbnails-item {
         margin-top: 0em;
