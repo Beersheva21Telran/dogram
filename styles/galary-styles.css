@@ -53,6 +53,11 @@ a {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    transition: 2s cubic-bezier(0.5, 0.5,0.1,1)
+}
+.is-tiny {
+    transform: scale(0.01);
+    transition: 0ms
 }
 
 .details-frame {
@@ -119,6 +124,9 @@ a {
     background-color: blue;
     color: cornsilk;
     height: var(--thumbnails-title-height);
+}
+.thumbnails-item:hover {
+    transform: scale(1.1);
 }
 .main-footer {
     text-align: center;

@@ -2,6 +2,7 @@ const thumbnails = document.querySelectorAll(".thumbnails-anchore");
 const detailsImage = document.querySelector(".details-image");
 const detailsTitle = document.querySelector(".details-title");
 const mainContent = document.querySelector(".main-class");
+const detailsContainer = document.querySelector(".details-container");
 // тип данных let нужен для того, чтобы можно было менять значение переменной
 let selectedItem = thumbnails[0].parentElement;
 const HIDDEN = "hidden";
@@ -23,6 +24,10 @@ function setDetails(thumbnail) {
 function showDetails() {
     // методы группы classList не требуют указания точки (.) перед названием класса
     mainContent.classList.remove(HIDDEN);
+    detailsContainer.classList.add("is-tiny");
+    setTimeout(() => detailsContainer.classList.remove("is-tiny"));
+    
+
 }
 function hideDetails() {
     mainContent.classList.add(HIDDEN);
